@@ -42,6 +42,8 @@ function initialPrompt() {
    // oldScrabbleScorer(word); 
 };
 
+////
+
 function scrabbleScorer(word) {
 	word = word.toUpperCase();
 	let letterPoints = 0;
