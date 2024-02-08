@@ -94,8 +94,17 @@ function scorerPrompt() {
    console.log("0 -", scoringAlgorithms[0].name, ":", scoringAlgorithms[0].description);
    console.log("1 -", scoringAlgorithms[1].name, ":", scoringAlgorithms[1].description);
    console.log("2 -", scoringAlgorithms[2].name, ":", scoringAlgorithms[2].description);
-   methodNum = input.question("Enter 0, 1, or 2: ");
-return methodNum; 
+   num = input.question("Enter 0, 1, or 2: ");
+      if (num == 0) {
+         finalScore = simpleScorer(word)
+         return finalScore;
+      } else if (num == 1) {
+         finalScore = vowelBonusScorer(word);
+         return finalScore;
+      } else if (num == 2) {
+         finalScore = scrabbleScorer(word); 
+         return finalScore; 
+}
 }
 
 function transform() {
@@ -109,17 +118,10 @@ function transform() {
 };
 
 function runProgram() {
-   initialPrompt()
-   let num = scorerPrompt();
-   num = Number(num);
-      if (num == 0) {
-      console.log(`Score for ${word}: ${simpleScorer(word)}`);
-      } else if (num == 1) {
-      console.log(`Score for ${word}: ${vowelBonusScorer(word)}`);
-      } else if (num == 2) {
-      console.log(`Score for ${word}: ${scrabbleScorer(word)}`);
-      }
-}
+initialPrompt()
+scorerPrompt();
+console.log(`Score for ${word}: ${(finalScore)}`);
+};
 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
