@@ -108,13 +108,13 @@ function scorerPrompt() {
 }
 
 function transform() {
-   transformArr = {};
+   transformObject = {};
    for (key in oldPointStructure) {
       for (i = 0; i < oldPointStructure[key].length; i++) {
-         transformArr[oldPointStructure[key][i].toLowerCase()] = +key;
+         transformObject[oldPointStructure[key][i].toLowerCase()] = +key;
       }
    }
-   return transformArr; 
+   return transformObject; 
 };
 
 function runProgram() {
